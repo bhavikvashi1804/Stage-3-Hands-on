@@ -1,3 +1,9 @@
+$(document).ready(() => {
+  $("#addTwoNumber").click(() => {
+    add_two_number();
+  });
+});
+
 function add_two_number() {
   //get the userInputs
   var number1 = Number($("#number1").val());
