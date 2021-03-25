@@ -6,32 +6,33 @@
 
 	<!-- To understand the concept of Bean scope: change the scope="prototype" 
 		to scope="singleton" -->
-	<bean id="country" class="com.cognizant.springlearn.Country" scope="prototype">
+	<bean id="country" class="com.cognizant.springlearn.model.Country"
+		scope="prototype">
 		<property name="code" value="IN" />
 		<property name="name" value="India" />
 	</bean>
 
-	<bean id="in" class="com.cognizant.springlearn.Country">
+	<!-- List of Bean for Country -->
+	<!-- Country Bean for India -->
+	<bean id="in" class="com.cognizant.springlearn.model.Country">
 		<property name="code" value="IN" />
 		<property name="name" value="India" />
 	</bean>
-
-	<bean id="us" class="com.cognizant.springlearn.Country">
+	<!-- Country Bean for UnitedStates -->
+	<bean id="us" class="com.cognizant.springlearn.model.Country">
 		<property name="code" value="US" />
 		<property name="name" value="United States" />
 	</bean>
-
-	<bean id="de" class="com.cognizant.springlearn.Country">
+	<!-- Country Bean for GERMANY -->
+	<bean id="de" class="com.cognizant.springlearn.model.Country">
 		<property name="code" value="DE" />
 		<property name="name" value="GERMANY" />
 	</bean>
-
-	<bean id="jp" class="com.cognizant.springlearn.Country">
+	<!-- Country Bean for JAPAN -->
+	<bean id="jp" class="com.cognizant.springlearn.model.Country">
 		<property name="code" value="JP" />
 		<property name="name" value="JAPAN" />
 	</bean>
-
-
 	<!-- List of Country Bean: Array List -->
 	<bean id="countryList" class="java.util.ArrayList">
 		<constructor-arg>
@@ -43,7 +44,6 @@
 			</list>
 		</constructor-arg>
 	</bean>
-
 </beans>
 
 <!-- US United States DE Germany IN India JP Japan -->

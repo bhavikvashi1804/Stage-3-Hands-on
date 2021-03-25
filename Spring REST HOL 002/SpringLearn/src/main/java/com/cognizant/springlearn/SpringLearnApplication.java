@@ -8,6 +8,8 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
+import com.cognizant.springlearn.model.Country;
+
 @SpringBootApplication
 public class SpringLearnApplication {
 
@@ -25,8 +27,9 @@ public class SpringLearnApplication {
 
 		ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("country.xml");
 
-		//Scope of Bean with id = "country" is prototype: hence for each time when we get bean it will call constructor
-		//By default scope of bean is Singleton
+		// Scope of Bean with id = "country" is prototype: hence for each time when we
+		// get bean it will call constructor
+		// By default scope of bean is Singleton
 		Country country = (Country) context.getBean("country", Country.class);
 		Country anotherCountry = context.getBean("country", Country.class);
 		LOGGER.info("Country : {}", country.toString());

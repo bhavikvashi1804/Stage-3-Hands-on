@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.cognizant.springlearn.Country;
+import com.cognizant.springlearn.model.Country;
 import com.cognizant.springlearn.service.CountryService;
 import com.cognizant.springlearn.service.exception.CountryNotFoundException;
 

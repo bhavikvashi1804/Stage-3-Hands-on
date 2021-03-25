@@ -7,7 +7,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.stereotype.Service;
 
-import com.cognizant.springlearn.Country;
+import com.cognizant.springlearn.model.Country;
 import com.cognizant.springlearn.service.exception.CountryNotFoundException;
 
 @Service
