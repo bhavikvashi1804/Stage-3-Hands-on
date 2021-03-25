@@ -3,6 +3,7 @@ package com.cognizant.employee.model;
 import java.util.Date;
 
 import javax.validation.Valid;
+import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.PositiveOrZero;
 import javax.validation.constraints.Size;
@@ -20,7 +21,7 @@ public class Employee {
 	@NotNull(message = "Salary should not be null")
 	@PositiveOrZero(message = "Salary should be zero or above")
 	private Float salary;
-	@NotNull(message = "Permanent should not be null")
+	@NotBlank(message = "Permanent should not be null")
 	private String permanent;
 	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd/MM/yyyy")
 	private Date dateOfBirth;
@@ -33,6 +34,7 @@ public class Employee {
 	public Integer getEmployeeId() {
 		return employeeId;
 	}
+
 	public void setEmployeeId(Integer employeeId) {
 		this.employeeId = employeeId;
 	}
