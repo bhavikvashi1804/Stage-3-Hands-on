@@ -9,5 +9,10 @@ $(document).ready(function () {
         $(this).css("background-color", "white");
       }
     );
- 
+
+  $(".searchWord").css({
+    "font-style": "italic",
+    "text-shadow": "2px 2px pink",
+    "font-weight": "bold",
+  });
 });
