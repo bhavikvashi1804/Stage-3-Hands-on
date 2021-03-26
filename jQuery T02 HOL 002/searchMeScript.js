@@ -11,27 +11,25 @@ $(document).ready(function () {
     );
 
   $("input").change(function () {
+    //remove the prev state
+    $("#par")
+      .children("span")
+      .each(function () {
+        if ($(this).hasClass("searchedWord")) {
+          $(this).removeClass("searchedWord");
+        }
+      });
+
+    // if search is null then return
     var searchTerm = $(this).val();
-    //console.log(text);
     if (searchTerm === "") {
-      $("#par")
-        .children("span")
-        .each(function () {
-          if ($(this).hasClass("searchedWord")) {
-            $(this).removeClass("searchedWord");
-          }
-        });
       return;
     }
-
+    // else provide the class
     $("#par")
       .children("span")
       .each(function () {
         var spanText = $(this).text();
-
-        if ($(this).hasClass("searchedWord")) {
-          $(this).removeClass("searchedWord");
-        }
 
         if (spanText.indexOf(searchTerm) != -1) {
           $(this).addClass("searchedWord");
