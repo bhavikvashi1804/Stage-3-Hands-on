@@ -13,6 +13,17 @@ $(document).ready(function () {
   $("input").change(function () {
     var searchTerm = $(this).val();
     //console.log(text);
+    if (searchTerm === "") {
+      $("#par")
+        .children("span")
+        .each(function () {
+          if ($(this).hasClass("searchedWord")) {
+            $(this).removeClass("searchedWord");
+          }
+        });
+      return;
+    }
+
     $("#par")
       .children("span")
       .each(function () {
