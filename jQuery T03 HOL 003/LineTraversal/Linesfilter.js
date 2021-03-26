@@ -27,6 +27,9 @@ $(document).ready(() => {
       }
     });
     console.log(myMessage);
+
+    //display the result to textArea
+    $("#result").val(myMessage);
   });
 });
 
