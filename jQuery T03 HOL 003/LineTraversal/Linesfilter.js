@@ -2,10 +2,9 @@ var myResult = [];
 
 $(document).ready(() => {
   $("#search").click(() => {
-
     //clear the prev state
     myResult = [];
-    
+
     //get the search term
     var searchTerm = $("#searchTerms").val();
     //split the word by ","
@@ -16,9 +15,18 @@ $(document).ready(() => {
       findTheWordInTextArea(words[i]);
     });
 
+    //finalize the result
+    var totalNoOfElements = myResult.length;
+    console.log(totalNoOfElements);
+    var myMessage = "";
     $.each(myResult, function (i) {
-      console.log(myResult[i]);
+      if (i == totalNoOfElements - 1) {
+        myMessage += myResult[i];
+      } else {
+        myMessage += myResult[i] + ", ";
+      }
     });
+    console.log(myMessage);
   });
 });
 
