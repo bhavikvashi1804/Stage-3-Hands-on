@@ -26,7 +26,6 @@ $(document).ready(() => {
         myMessage += myResult[i] + ", ";
       }
     });
-    console.log(myMessage);
 
     //display the result to textArea
     $("#result").val(myMessage);
@@ -42,7 +41,15 @@ function findTheWordInTextArea(word) {
   var searchTextAreaLines = searchTextArea.split(/\r|\r\n|\n/);
   $.each(searchTextAreaLines, function (i) {
     if (searchTextAreaLines[i].indexOf(word) != -1) {
-      myResult.push(searchTextAreaLines[i]);
+      let searchIndex = searchTextAreaLines[i].indexOf(word);
+      let prefix = searchTextAreaLines[i].substr(
+        searchTextAreaLines[i],
+        searchIndex
+      );
+      let change = "<b>" + word + "</b>";
+      let suffix = searchTextAreaLines[i].substr(searchIndex + word.length);
+
+      myResult.push(prefix + change + suffix);
     }
   });
 }
