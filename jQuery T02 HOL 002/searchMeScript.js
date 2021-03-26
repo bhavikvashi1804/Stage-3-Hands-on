@@ -18,12 +18,12 @@ $(document).ready(function () {
       .each(function () {
         var spanText = $(this).text();
 
+        if ($(this).hasClass("searchedWord")) {
+          $(this).removeClass("searchedWord");
+        }
+
         if (spanText.indexOf(searchTerm) != -1) {
-          $(this).css({
-            "font-style": "italic",
-            "text-shadow": "2px 2px pink",
-            "font-weight": "bold",
-          });
+          $(this).addClass("searchedWord");
         }
       });
   });
