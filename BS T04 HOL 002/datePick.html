@@ -15,23 +15,17 @@
     <div class="container">
         <h2>Using Third Party Library for Date</h2><br><br>
         <div class="container">
-
             <div class="row">
-
                 <div class="col-lg-3">
-
-                    <input type="text" class="form-control" id="datepicker">
-
+                    <input type="text" class="form-control" id="dateOfBirth">
                 </div>
-
             </div>
-
         </div>
     </div>
-
     <script>
-        $('#datepicker').datepicker({
-            uiLibrary: 'bootstrap4'
+        $('#dateOfBirth').datepicker({
+            uiLibrary: 'bootstrap4',
+            format: 'dd/mm/yyyy'
         });
     </script>
 
