@@ -23,7 +23,7 @@
 
 <body>
     <!-- NAVBAR WITH RESPONSIVE TOGGLE -->
-    <nav class="navbar navbar-expand-sm bg-dark navbar-dark ">
+    <nav class="navbar navbar-expand-sm bg-dark navbar-dark ml-0 mr-0">
         <a class="navbar-brand" href="#">hTrack</a>
         <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarNav">
             <span class="navbar-toggler-icon"></span>
@@ -43,8 +43,8 @@
         </div>
     </nav>
     <!-- Grid System -->
-    <div class="row">
-        <div class="col-sm-12 col-lg-10 bg-success">
+    <div class="row mr-0">
+        <div class="col-sm-10 col-lg-10 bg-success">
             <h1>Benefits</h1>
             <ul class="mb-0">
                 <li>Set Goals</li>
@@ -52,7 +52,7 @@
                 <li>Get tips from experts and coaches</li>
             </ul>
         </div>
-        <div class="col-sm-12 col-lg-2 bg-info">
+        <div class="col-sm-10 col-lg-2 bg-info">
             <h1>Login</h1>
         </div>
     </div>
@@ -65,18 +65,30 @@
     <hr>
 
     <!-- List of Events -->
-    <div class="container p-0 ml-5 mt-2 pb-10">
+    <div class="container ml-auto mr-auto bg-success">
         <h1>List Group Demo</h1>
-        <ul class="list-group">
-            <li class="list-group-item">Cras justo odio</li>
-            <li class="list-group-item">Dapibus ac facilisis in</li>
-            <li class="list-group-item">Morbi leo risus</li>
-            <li class="list-group-item">Porta ac consectetur ac</li>
-            <li class="list-group-item">Vestibulum at eros</li>
-        </ul>
+        <div class="w-75">
+            <ul class="list-group w-50">
+                <li class="list-group-item">
+                    <div><i class="material-icons">calendar_today</i> SEP 17. TUESDAY</div>
+                    <div class="h4 text-danger">Annual Hackathon</div>
+                    <div class="eventPlace">Elte Trefortkert belső utak. 1088 Hungary. Budapest</div>
+                </li>
+                <li class="list-group-item">
+                    <div class="eventDate"><i class="material-icons">calendar_today</i>SEP 25. WEDNESDAY</div>
+                    <div class="h4 text-danger">Seminar on Big Data</div>
+                    <div class="eventPlace">Willy-Brandt-Straße. 20095 Hamburg, Germany</div>
+                </li>
+                <li class="list-group-item">
+                    <div class="eventDate"><i class="material-icons">calendar_today</i>AUG 26. MONDAY</div>
+                    <div class="h4 text-danger">Workshop on Agile Scrum</div>
+                    <div class="eventPlace">The Banqueting House 61 Whitehall Westminster. London
+                        SWIA ZET United Kingdom</div>
+                </li>
+            </ul>
+        </div>
     </div>
-
-
+    <hr>
 </body>
 
 </html>
