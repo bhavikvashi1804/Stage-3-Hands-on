@@ -3,10 +3,12 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { EditEmpReactiveComponent } from './edit-emp-reactive/edit-emp-reactive.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    EditEmpReactiveComponent
   ],
   imports: [
     BrowserModule,
