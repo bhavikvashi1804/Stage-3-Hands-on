@@ -28,6 +28,7 @@ export class EditEmpReactiveComponent implements OnInit {
         Validators.minLength(4),
         Validators.maxLength(20),
       ]),
+      salary: new FormControl(this.employee.salary, Validators.required),
     });
   }
 
@@ -37,7 +38,11 @@ export class EditEmpReactiveComponent implements OnInit {
     return this.empForm.get('name');
   }
 
-  save() {
+  get salary() {
+    return this.empForm.get('salary');
+  }
+
+  onSubmit() {
     console.log(this.empForm.invalid);
     console.log(this.empForm.value.name);
   }
