@@ -29,6 +29,7 @@ export class EditEmpReactiveComponent implements OnInit {
         Validators.maxLength(20),
       ]),
       salary: new FormControl(this.employee.salary, Validators.required),
+      permanent: new FormControl(false),
     });
   }
 
@@ -43,7 +44,9 @@ export class EditEmpReactiveComponent implements OnInit {
   }
 
   onSubmit() {
-    console.log(this.empForm.invalid);
-    console.log(this.empForm.value.name);
+    console.log('Is Invalid:' + this.empForm.invalid);
+    console.log('Employee Name: ' + this.empForm.value.name);
+    console.log('Employee Salary: ' + this.empForm.value.salary);
+    console.log('Employee is Permanent: ' + this.empForm.value.permanent);
   }
 }
