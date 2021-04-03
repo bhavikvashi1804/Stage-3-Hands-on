@@ -18,8 +18,6 @@ export class EditEmpReactiveComponent implements OnInit {
     skills: undefined,
   };
 
-  name = new FormControl(this.employee.name);
-
   //create a form Group
   empForm: FormGroup;
 
@@ -34,6 +32,10 @@ export class EditEmpReactiveComponent implements OnInit {
   }
 
   ngOnInit(): void {}
+
+  get name() {
+    return this.empForm.get('name');
+  }
 
   save() {}
 }
