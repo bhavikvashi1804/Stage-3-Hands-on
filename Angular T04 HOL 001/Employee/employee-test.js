@@ -1,7 +1,7 @@
 "use strict";
 exports.__esModule = true;
 var EmployeeTest = /** @class */ (function () {
-    function EmployeeTest(id, name, salary, deptId, deptName) {
+    function EmployeeTest(id, name, salary, department, skills) {
         this.employee = {
             id: undefined,
             name: undefined,
@@ -13,8 +13,8 @@ var EmployeeTest = /** @class */ (function () {
         this.employee.id = id;
         this.employee.name = name;
         this.employee.salary = salary;
-        //this.employee.department.id = deptId;
-        //this.employee.department.name = deptName;
+        this.employee.department = department;
+        this.employee.skills = skills;
     }
     EmployeeTest.prototype.display = function () {
         console.log("ID: " + this.employee.id);
@@ -30,5 +30,21 @@ var EmployeeTest = /** @class */ (function () {
     };
     return EmployeeTest;
 }());
-var employeeTest = new EmployeeTest(101, "Raj Patel", 10000, 1, "Payroll");
+var employeeTest = new EmployeeTest(101, "Raj Patel", 10000, {
+    id: 100,
+    name: "Information Technology"
+}, [
+    {
+        id: 1,
+        name: "HTML"
+    },
+    {
+        id: 2,
+        name: "CSS"
+    },
+    {
+        id: 3,
+        name: "JavaScript"
+    }
+]);
 employeeTest.display();

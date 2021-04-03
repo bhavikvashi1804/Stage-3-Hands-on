@@ -16,14 +16,14 @@ class EmployeeTest {
     id?: number,
     name?: string,
     salary?: number,
-    deptId?: number,
-    deptName?: string
+    department?: Department,
+    skills?: Skill[]
   ) {
     this.employee.id = id;
     this.employee.name = name;
     this.employee.salary = salary;
-    //this.employee.department.id = deptId;
-    //this.employee.department.name = deptName;
+    this.employee.department = department;
+    this.employee.skills = skills;
   }
 
   display(): void {
@@ -40,5 +40,27 @@ class EmployeeTest {
   }
 }
 
-let employeeTest = new EmployeeTest(101, "Raj Patel", 10000, 1, "Payroll");
+let employeeTest = new EmployeeTest(
+  101,
+  "Raj Patel",
+  10000,
+  {
+    id: 100,
+    name: "Information Technology",
+  },
+  [
+    {
+      id: 1,
+      name: "HTML",
+    },
+    {
+      id: 2,
+      name: "CSS"
+    },
+    {
+      id: 3,
+      name: "JavaScript"
+    }
+  ]
+);
 employeeTest.display();
