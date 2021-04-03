@@ -37,5 +37,7 @@ export class EditEmpReactiveComponent implements OnInit {
     return this.empForm.get('name');
   }
 
-  save() {}
+  save() {
+    console.log(this.empForm.value.name);
+  }
 }
