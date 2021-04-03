@@ -3,6 +3,12 @@
 <h2>Edit Employee</h2>
 
 <!-- Edit employee form -->
-Name
-<br>
-<input type="text" />
+<div>
+    <form [formGroup]="empForm" (ngSubmit)="save()">
+
+        <div class="form-group">
+            <label>Name</label><br>
+            <input type="text" formControlName="name" class="form-control" />
+        </div>
+    </form>
+</div>

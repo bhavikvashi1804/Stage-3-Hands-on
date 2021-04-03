@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Employee } from '../Employee/employee';
 
 @Component({
@@ -8,7 +8,6 @@ import { Employee } from '../Employee/employee';
   styleUrls: ['./edit-emp-reactive.component.css'],
 })
 export class EditEmpReactiveComponent implements OnInit {
- 
   //create a new employee property
   employee: Employee = {
     id: undefined,
@@ -21,9 +20,20 @@ export class EditEmpReactiveComponent implements OnInit {
 
   name = new FormControl(this.employee.name);
 
-  
+  //create a form Group
+  empForm: FormGroup;
 
-  constructor() {}
+  constructor() {
+    this.empForm = new FormGroup({
+      name: new FormControl(this.employee.name, [
+        Validators.required,
+        Validators.minLength(4),
+        Validators.maxLength(20),
+      ]),
+    });
+  }
 
   ngOnInit(): void {}
+
+  save() {}
 }
