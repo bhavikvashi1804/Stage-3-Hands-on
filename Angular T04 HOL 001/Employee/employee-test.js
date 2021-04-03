@@ -1,39 +1,34 @@
 "use strict";
 exports.__esModule = true;
-// Department for payroll
-var payrollDept = {
-    id: 1,
-    name: "Payroll"
-};
-//list of skills
-var htmlSkill = {
-    id: 1,
-    name: "HTML"
-};
-var cssSkill = {
-    id: 2,
-    name: "CSS"
-};
-var jsSkill = {
-    id: 3,
-    name: "JAVA Script"
-};
-// create an object of Employee
-var ctsEmployee = {
-    id: 100,
-    name: "Raj Patel",
-    salary: 100000,
-    permanent: false,
-    department: payrollDept,
-    skills: [htmlSkill, cssSkill, jsSkill]
-};
-//print the details
-console.log("CTS Employee Details");
-console.log("ID: " + ctsEmployee.id);
-console.log("Name: " + ctsEmployee.name);
-console.log("Salary: " + ctsEmployee.salary);
-console.log("Department ID: " + ctsEmployee.department.id);
-console.log("Department Name: " + ctsEmployee.department.name);
-ctsEmployee.skills.forEach(function (value) {
-    console.log(value);
-});
+var EmployeeTest = /** @class */ (function () {
+    function EmployeeTest(id, name, salary, deptId, deptName) {
+        this.employee = {
+            id: undefined,
+            name: undefined,
+            salary: undefined,
+            permanent: undefined,
+            department: undefined,
+            skills: undefined
+        };
+        this.employee.id = id;
+        this.employee.name = name;
+        this.employee.salary = salary;
+        //this.employee.department.id = deptId;
+        //this.employee.department.name = deptName;
+    }
+    EmployeeTest.prototype.display = function () {
+        console.log("ID: " + this.employee.id);
+        console.log("Name: " + this.employee.name);
+        console.log("Salary: " + this.employee.salary);
+        console.log("Department ID: " + this.employee.department.id);
+        console.log("Department Name: " + this.employee.department.name);
+        var skills = this.employee.skills;
+        for (var _i = 0; _i < skills.length; _i++) {
+            var skill = skills[_i];
+            console.log("skill[" + _i + "]:" + skill.id + ", " + skill.name);
+        }
+    };
+    return EmployeeTest;
+}());
+var employeeTest = new EmployeeTest(101, "Raj Patel", 10000, 1, "Payroll");
+employeeTest.display();
