@@ -1,14 +1,18 @@
-<h1>Angular Leaning</h1>
-<hr>
-<h2>Edit Employee</h2>
+<div class="container">
+    <h1>Angular Leaning</h1>
+    <hr>
+    <h2>Edit Employee</h2>
+</div>
 
 <!-- Edit employee form -->
-<div>
+<div class="container">
     <form [formGroup]="empForm" (ngSubmit)="save()">
 
         <div class="form-group">
             <label>Name</label><br>
             <input type="text" formControlName="name" class="form-control" />
         </div>
+
+        <button class="btn btn-primary" [disabled]="empForm.invalid">SAVE</button>
     </form>
 </div>
