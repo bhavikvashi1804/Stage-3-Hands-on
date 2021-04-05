@@ -11,7 +11,12 @@
                     <label class="col-sm-2 control-label" for="textinput">Address</label>
                     <div class="col-sm-10">
                         <input type="text" name="address" placeholder="Enter Address" class="form-control"
-                            [(ngModel)]="model.address">
+                            [(ngModel)]="model.address"
+                            [ngClass]="{'invalid-data': address.invalid && f.submitted, 'valid-data': address.valid && f.submitted}"
+                            #address="ngModel" required>
+                        <div *ngIf="address.invalid && f.submitted">
+                            <span style="color: red;">Please Enter Address.</span>
+                        </div>
                     </div>
                 </div>
 
@@ -19,7 +24,12 @@
                     <label class="col-sm-2 control-label" for="textinput">City</label>
                     <div class="col-sm-10">
                         <input type="text" name="city" placeholder="Enter City Name" class="form-control"
-                            [(ngModel)]="model.city">
+                            [(ngModel)]="model.city"
+                            [ngClass]="{'invalid-data': city.invalid && f.submitted, 'valid-data': city.valid && f.submitted}"
+                            #city="ngModel" required>
+                        <div *ngIf="city.invalid && f.submitted">
+                            <span style="color: red;">Please Enter City.</span>
+                        </div>
                     </div>
                 </div>
 
