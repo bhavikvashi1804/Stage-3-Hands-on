@@ -1,5 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import {
+  FormBuilder,
+  FormControl,
+  FormGroup,
+  Validators,
+} from '@angular/forms';
 import { Department } from '../Employee/department';
 import { Employee } from '../Employee/employee';
 
@@ -15,31 +20,25 @@ export class EditEmpReactiveComponent implements OnInit {
     name: undefined,
     salary: undefined,
     permanent: undefined,
-    department: {
-      id: 0,
-      name: 'NA',
-    },
+    department: undefined,
     skills: undefined,
   };
 
   //create a form Group
-  empForm: FormGroup;
+  empForm = this.fb.group({
+    name: [
+      '',
+      [Validators.required, Validators.minLength(4), Validators.maxLength(20)],
+    ],
+    salary: ['', Validators.required],
+    permanent: [false],
+    department: [101],
+  });
 
   //create a list of departments
   departments: Department[];
 
-  constructor() {
-    this.empForm = new FormGroup({
-      name: new FormControl(this.employee.name, [
-        Validators.required,
-        Validators.minLength(4),
-        Validators.maxLength(20),
-      ]),
-      salary: new FormControl(this.employee.salary, Validators.required),
-      permanent: new FormControl(false),
-      department: new FormControl(101),
-    });
-
+  constructor(private fb: FormBuilder) {
     // assign the list of departments
     this.departments = [
       {
@@ -59,14 +58,16 @@ export class EditEmpReactiveComponent implements OnInit {
 
   ngOnInit(): void {}
 
+  //getter for name field
   get name() {
     return this.empForm.get('name');
   }
-
+  //getter for salary field
   get salary() {
     return this.empForm.get('salary');
   }
 
+  //handles the submission of data
   onSubmit() {
     console.log('Is Invalid:' + this.empForm.invalid);
     console.log('Employee Form Details from the form');
@@ -79,11 +80,7 @@ export class EditEmpReactiveComponent implements OnInit {
     this.employee.name = this.empForm.value.name;
     this.employee.salary = this.empForm.value.salary;
     this.employee.permanent = this.empForm.value.permanent;
-    let selectedDept: Department = {
-      id: 0,
-      name: 'NA',
-    };
-
+    let selectedDept: Department;
     for (let d of this.departments) {
       if (d.id == this.empForm.value.department) {
         selectedDept = d;
