@@ -37,7 +37,7 @@ export class EditEmpReactiveComponent implements OnInit {
       ]),
       salary: new FormControl(this.employee.salary, Validators.required),
       permanent: new FormControl(false),
-      department: new FormControl(),
+      department: new FormControl(101),
     });
 
     // assign the list of departments
