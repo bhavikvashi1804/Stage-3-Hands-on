@@ -46,12 +46,16 @@
                         <div *ngIf="state.invalid && f.submitted">
                             <span style="color: red;">Please Enter State.</span>
                         </div>
-
                     </div>
                     <label class="col-sm-2 control-label" for="textinput">Postcode</label>
                     <div class="col-sm-4">
                         <input type="text" name="postcode" placeholder="Enter Post Code" class="form-control"
-                            [(ngModel)]="model.postcode">
+                            [(ngModel)]="model.postcode"
+                            [ngClass]="{'invalid-data': postcode.invalid && f.submitted, 'valid-data': postcode.valid && f.submitted}"
+                            #postcode="ngModel" required>
+                        <div *ngIf="postcode.invalid && f.submitted">
+                            <span style="color: red;">Please Enter Postcode.</span>
+                        </div>
                     </div>
                 </div>
 
