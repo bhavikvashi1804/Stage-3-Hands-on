@@ -7,6 +7,7 @@
                     <strong>Template Driven Form</strong>
                 </legend>
 
+                <!-- Input for Address -->
                 <div class="form-group">
                     <label class="col-sm-2 control-label" for="textinput">Address</label>
                     <div class="col-sm-10">
@@ -20,6 +21,7 @@
                     </div>
                 </div>
 
+                <!-- Input for City -->
                 <div class="form-group">
                     <label class="col-sm-2 control-label" for="textinput">City</label>
                     <div class="col-sm-10">
@@ -33,6 +35,7 @@
                     </div>
                 </div>
 
+                <!-- Input for State -->
                 <div class="form-group">
                     <label class="col-sm-2 control-label" for="textinput">State</label>
                     <div class="col-sm-4">
@@ -46,6 +49,7 @@
                     </div>
                 </div>
 
+                <!-- Input for Country -->
                 <div class="form-group">
                     <label class="col-sm-2 control-label" for="textinput">Country</label>
                     <div class="col-sm-10">
@@ -63,19 +67,17 @@
                     </div>
                 </div>
 
+                <!-- Input for Terms & Conditions -->
                 <div class="form-group">
-                    <div class="col-sm-2 form-check">
-                        <input type="checkbox" name="aggrement" [(ngModel)]="model.aggrement">
+                    <div class="col-sm-2 form-check"> <input type="checkbox" [(ngModel)]="model.aggrement"
+                            [ngClass]="{'invalid-data': aggrement.invalid && f.submitted, 'valid-data': aggrement.valid && f.submitted}"
+                            required name="aggrement" #aggrement="ngModel" class="form-check-input">
                     </div>
-                    <label class="col-sm-10 form-check-label">I aggree to Terms & Conditions</label>
+                    <label class="col-sm-10 form-check-label">I aggree to Terms & Conditions
+                    </label>
                 </div>
 
-                <div class="form-group">
-                    <div class="col-sm-12">
-                        <span style="color: red;">Please Aggree with Terms & Conditions.</span>
-                    </div>
-                </div>
-
+                <!-- Submit and Reset button -->
                 <div class="form-group">
                     <div class="col-sm-offset-2 col-sm-10">
                         <div class="pull-right">
