@@ -1,8 +1,6 @@
-<div class="container">
-    <div class="row">
-        <div class="col-md-4 col-md-offset-4"
-            style="margin-top: 50px; border: 1px solid rgb(100, 98, 98); padding: 30px;">
-            <form class="form-horizontal" role="form" #f="ngForm" (ngSubmit)="f.form.valid && onFormSubmit()">
+<div class="row">
+    <div class="col-md-4 col-md-offset-4" style="margin-top: 50px; border: 1px solid rgb(100, 98, 98); padding: 30px;">
+        <form class="form-horizontal" role="form" #f="ngForm" (ngSubmit)="f.form.valid && onFormSubmit()">
 
             <fieldset>
                 <legend>Address Details:
@@ -12,32 +10,36 @@
                 <div class="form-group">
                     <label class="col-sm-2 control-label" for="textinput">Address</label>
                     <div class="col-sm-10">
-                        <input type="text" name="address" placeholder="Enter Address" class="form-control" ngModel>
+                        <input type="text" name="address" placeholder="Enter Address" class="form-control"
+                            [(ngModel)]="model.address">
                     </div>
                 </div>
 
                 <div class="form-group">
                     <label class="col-sm-2 control-label" for="textinput">City</label>
                     <div class="col-sm-10">
-                        <input type="text" name="city" placeholder="Enter City Name" class="form-control" ngModel>
+                        <input type="text" name="city" placeholder="Enter City Name" class="form-control"
+                            [(ngModel)]="model.city">
                     </div>
                 </div>
 
                 <div class="form-group">
                     <label class="col-sm-2 control-label" for="textinput">State</label>
                     <div class="col-sm-4">
-                        <input type="text" name="state" placeholder="State" class="form-control">
+                        <input type="text" name="state" placeholder="State" class="form-control"
+                            [(ngModel)]="model.state">
                     </div>
                     <label class="col-sm-2 control-label" for="textinput">Postcode</label>
                     <div class="col-sm-4">
-                        <input type="text" name="postcode" placeholder="Enter Post Code" class="form-control">
+                        <input type="text" name="postcode" placeholder="Enter Post Code" class="form-control"
+                            [(ngModel)]="model.postcode">
                     </div>
                 </div>
 
                 <div class="form-group">
                     <label class="col-sm-2 control-label" for="textinput">Country</label>
                     <div class="col-sm-10">
-                        <select class="form-control" name="country">
+                        <select class="form-control" name="country" [(ngModel)]="model.country">
                             <option>---Select---</option>
                             <option *ngFor="let item of countryData" [value]="item">
                                 {{item}}
@@ -48,10 +50,9 @@
 
                 <div class="form-group">
                     <div class="col-sm-2 form-check">
-                        <input type="checkbox" name="aggrement" class="form-check-input">
+                        <input type="checkbox" name="aggrement" [(ngModel)]="model.aggrement">
                     </div>
-                    <label class="col-sm-10 form-check-label">I aggree to Terms & Conditions
-                    </label>
+                    <label class="col-sm-10 form-check-label">I aggree to Terms & Conditions</label>
                 </div>
 
                 <div class="form-group">
@@ -68,8 +69,8 @@
                         </div>
                     </div>
                 </div>
+
             </fieldset>
-            </form>
-        </div>
+        </form>
     </div>
 </div>
