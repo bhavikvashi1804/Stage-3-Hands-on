@@ -34,7 +34,16 @@
         </div>
         <div class="form-group form-check">
             <input type="checkbox" class="form-check-input" formControlName="permanent" id="exampleCheck1">
-            <label class="form-check-label" for="exampleCheck1" >Permanent</label>
+            <label class="form-check-label" for="exampleCheck1">Permanent</label>
+        </div>
+
+        <div class="form-group">
+            <label for="department">Department</label>
+            <select class="form-control" formControlName="department">
+                <option *ngFor="let department of departments">
+                    {{department.name}}
+                </option>
+            </select>
         </div>
 
         <button class="btn btn-primary" [disabled]="empForm.invalid">SAVE</button>

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Department } from '../Employee/department';
 import { Employee } from '../Employee/employee';
 
 @Component({
@@ -21,6 +22,9 @@ export class EditEmpReactiveComponent implements OnInit {
   //create a form Group
   empForm: FormGroup;
 
+  //create a list of departments
+  departments: Department[];
+
   constructor() {
     this.empForm = new FormGroup({
       name: new FormControl(this.employee.name, [
@@ -31,6 +35,22 @@ export class EditEmpReactiveComponent implements OnInit {
       salary: new FormControl(this.employee.salary, Validators.required),
       permanent: new FormControl(false),
     });
+
+    // assign the list of departments
+    this.departments = [
+      {
+        id: 101,
+        name: 'Payroll',
+      },
+      {
+        id: 102,
+        name: 'Support',
+      },
+      {
+        id: 103,
+        name: 'Admin',
+      },
+    ];
   }
 
   ngOnInit(): void {}
