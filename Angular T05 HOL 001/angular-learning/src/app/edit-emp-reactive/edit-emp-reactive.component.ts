@@ -30,7 +30,7 @@ export class EditEmpReactiveComponent implements OnInit {
       '',
       [Validators.required, Validators.minLength(4), Validators.maxLength(20)],
     ],
-    salary: ['', Validators.required],
+    salary: ['', [Validators.required, Validators.pattern('[0-9]+')]],
     permanent: [false],
     department: [101],
   });

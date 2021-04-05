@@ -30,6 +30,9 @@
                 <small *ngIf="salary.hasError('required')">
                     Salary is required
                 </small>
+                <small *ngIf="salary.hasError('pattern')">
+                    Only numbers are allowed
+                </small>
             </div>
         </div>
         <div class="form-group form-check">
