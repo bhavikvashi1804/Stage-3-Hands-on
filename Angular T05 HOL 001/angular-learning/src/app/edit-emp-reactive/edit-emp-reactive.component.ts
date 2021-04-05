@@ -15,7 +15,10 @@ export class EditEmpReactiveComponent implements OnInit {
     name: undefined,
     salary: undefined,
     permanent: undefined,
-    department: undefined,
+    department: {
+      id: 0,
+      name: 'NA',
+    },
     skills: undefined,
   };
 
@@ -34,6 +37,7 @@ export class EditEmpReactiveComponent implements OnInit {
       ]),
       salary: new FormControl(this.employee.salary, Validators.required),
       permanent: new FormControl(false),
+      department: new FormControl(),
     });
 
     // assign the list of departments
@@ -65,8 +69,36 @@ export class EditEmpReactiveComponent implements OnInit {
 
   onSubmit() {
     console.log('Is Invalid:' + this.empForm.invalid);
+    console.log('Employee Form Details from the form');
     console.log('Employee Name: ' + this.empForm.value.name);
     console.log('Employee Salary: ' + this.empForm.value.salary);
     console.log('Employee is Permanent: ' + this.empForm.value.permanent);
+    console.log('Employee Department Id is: ' + this.empForm.value.department);
+
+    //assign the value from empForm to the empObject
+    this.employee.name = this.empForm.value.name;
+    this.employee.salary = this.empForm.value.salary;
+    this.employee.permanent = this.empForm.value.permanent;
+    let selectedDept: Department = {
+      id: 0,
+      name: 'NA',
+    };
+
+    for (let d of this.departments) {
+      if (d.id == this.empForm.value.department) {
+        selectedDept = d;
+      }
+    }
+
+    this.employee.department = {
+      id: selectedDept.id,
+      name: selectedDept.name,
+    };
+    console.log('Employee Details from the Employee Object');
+    console.log('Employee Name: ' + this.employee.name);
+    console.log('Employee Salary: ' + this.employee.salary);
+    console.log('Employee is Permanent: ' + this.employee.permanent);
+    console.log('Employee Department Id: ' + this.employee.department.id);
+    console.log('Employee Department Name: ' + this.employee.department.name);
   }
 }
