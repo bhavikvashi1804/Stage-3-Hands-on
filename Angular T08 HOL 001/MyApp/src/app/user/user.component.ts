@@ -80,6 +80,7 @@ export class UserComponent implements OnInit {
         console.log(data);
         if (data == null) {
           //as per the API documentation if delete done then it returns null object
+          console.log(data);
           this.message = 'Delete done';
         }
       },

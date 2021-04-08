@@ -7,15 +7,21 @@ import { catchError } from 'rxjs/operators';
   providedIn: 'root',
 })
 export class ApiService {
-  private SERVER = 'http://server.com/api/products';
+  private SERVER = 'https://reqres.in/api/register';
 
   constructor(private httpClient: HttpClient) {}
 
   public fetchData() {
-    return this.httpClient.get(this.SERVER).pipe(catchError(this.handleError));
+    return this.httpClient
+      // I am already making some request which provides some error
+      .post(this.SERVER, {
+        email: 'sydney@fife',
+      })
+      .pipe(catchError(this.handleError));
   }
 
   handleError(error: HttpErrorResponse) {
+    console.log('Error');
     let errorMessage = 'Unknown error!';
     if (error.error instanceof ErrorEvent) {
       // Client-side errors
