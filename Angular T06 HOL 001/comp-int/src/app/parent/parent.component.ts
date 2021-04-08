@@ -11,5 +11,7 @@ export class ParentComponent implements OnInit {
   parentMessage = 'message from parent';
   constructor() {}
 
+  //Way 2: Child to Parent: Sharing Data via ViewChild
+
   ngOnInit(): void {}
 }
