@@ -7,20 +7,18 @@ import { HomeComponent } from './components/home/home.component';
 import { AboutComponent } from './components/about/about.component';
 import { LoginComponent } from './components/login/login.component';
 import { MenuComponent } from './menu/menu.component';
-
+import { appRoutes } from './routerConfig';
+import { RouterModule } from '@angular/router';
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     AboutComponent,
     LoginComponent,
-    MenuComponent
+    MenuComponent,
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule
-  ],
+  imports: [BrowserModule, AppRoutingModule, RouterModule.forRoot(appRoutes)],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
