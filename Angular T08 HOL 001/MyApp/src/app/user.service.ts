@@ -9,9 +9,11 @@ import { User } from './model/user.model';
 export class UserService {
   private _url: string = 'https://reqres.in/api/users?page=2';
 
+  user: User[];
+  myData = {};
   constructor(private http: HttpClient) {}
 
-  getAllUsers(): Observable<User[]> {
-    return this.http.get<User[]>(this._url);
+  getAllUsers(): any {
+    return this.http.get<any>(this._url);
   }
 }
