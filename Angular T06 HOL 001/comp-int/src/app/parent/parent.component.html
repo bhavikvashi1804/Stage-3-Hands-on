@@ -1,1 +1,5 @@
-<p>parent works!</p>
+<app-child [childMessage]="parentMessage" #myChild></app-child>
+<hr>
+<h4>Way 2: Child to Parent: Sharing Data via ViewChild</h4>
+Message: {{ message }}
+<br> This message is passed from child to parent via @ViewChild
