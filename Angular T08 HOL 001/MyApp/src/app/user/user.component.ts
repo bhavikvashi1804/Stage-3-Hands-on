@@ -10,6 +10,7 @@ import { UserService } from '../user.service';
 export class UserComponent implements OnInit {
   users: User[] = [];
   isLoading: boolean = true;
+  message: string = '';
   constructor(private _userService: UserService) {}
 
   ngOnInit(): void {
@@ -23,7 +24,6 @@ export class UserComponent implements OnInit {
         console.log('Error : ' + error);
       },
       () => {
-        console.log('Done');
         this.isLoading = false;
       }
     );
@@ -38,10 +38,12 @@ export class UserComponent implements OnInit {
       .subscribe(
         (data) => {
           console.log(data);
+          this.message = JSON.stringify(data);
         },
         (error) => {
           console.log('Something went wrong');
           console.log('Error : ' + error);
+          this.message = 'Something went wrong';
         },
         () => {
           console.log('Done');
