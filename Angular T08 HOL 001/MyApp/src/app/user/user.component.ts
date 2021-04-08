@@ -50,4 +50,46 @@ export class UserComponent implements OnInit {
         }
       );
   }
+
+  updateUser() {
+    this._userService
+      .updateUser({
+        name: 'morpheus',
+        job: 'leader',
+      })
+      .subscribe(
+        (data) => {
+          console.log(data);
+          this.message = JSON.stringify(data);
+        },
+        (error) => {
+          console.log('Something went wrong');
+          console.log('Error : ' + error);
+          this.message = 'Something went wrong';
+        },
+        () => {
+          console.log('Done');
+        }
+      );
+  }
+
+  deleteUser() {
+    this._userService.deleteUser(2).subscribe(
+      (data) => {
+        console.log(data);
+        if(data == null){
+          //as per the API documentation if delete done then it returns null object
+          this.message = "Delete done";
+        }
+      },
+      (error) => {
+        console.log('Something went wrong');
+        console.log('Error : ' + error);
+        this.message = 'Something went wrong';
+      },
+      () => {
+        console.log('Done');
+      }
+    );
+  }
 }

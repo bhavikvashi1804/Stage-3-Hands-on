@@ -7,7 +7,7 @@ import { User } from './model/user.model';
   providedIn: 'root',
 })
 export class UserService {
-  private _url: string = 'https://reqres.in/api/users?page=2';
+  private _url: string = 'https://reqres.in/api/users';
 
   user: User[];
   myData = {};
@@ -18,6 +18,14 @@ export class UserService {
   }
 
   createUser(data: { name: string; job: string }): Observable<any> {
-    return this.http.post('https://reqres.in/api/users', data);
+    return this.http.post(this._url + '?page=2', data);
+  }
+
+  updateUser(data: { name: string; job: string }): Observable<any> {
+    return this.http.put(this._url, data);
+  }
+
+  deleteUser(id: number): Observable<any> {
+    return this.http.delete(this._url + id);
   }
 }
