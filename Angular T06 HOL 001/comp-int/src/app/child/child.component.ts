@@ -1,15 +1,15 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-child',
-  templateUrl: './child.component.html',
-  styleUrls: ['./child.component.css']
+  template: ` Say {{ message }} `,
+  styleUrls: ['./child.component.css'],
 })
 export class ChildComponent implements OnInit {
+  constructor() {}
 
-  constructor() { }
+  @Input("childMessage") 
+  message: string;
 
-  ngOnInit(): void {
-  }
-
+  ngOnInit(): void {}
 }
