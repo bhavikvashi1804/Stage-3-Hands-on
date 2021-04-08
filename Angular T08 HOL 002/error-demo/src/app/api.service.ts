@@ -1,6 +1,7 @@
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { throwError } from 'rxjs';
+import { catchError } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root',
@@ -11,7 +12,7 @@ export class ApiService {
   constructor(private httpClient: HttpClient) {}
 
   public fetchData() {
-    return this.httpClient.get(this.SERVER);
+    return this.httpClient.get(this.SERVER).pipe(catchError(this.handleError));
   }
 
   handleError(error: HttpErrorResponse) {
