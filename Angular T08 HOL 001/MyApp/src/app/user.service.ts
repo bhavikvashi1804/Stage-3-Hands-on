@@ -21,8 +21,11 @@ export class UserService {
     return this.http.post(this._url + '?page=2', data);
   }
 
-  updateUser(data: { name: string; job: string }): Observable<any> {
-    return this.http.put(this._url, data);
+  updateUser(
+    userID: number,
+    data: { name: string; job: string }
+  ): Observable<any> {
+    return this.http.put(this._url + '/' + userID, data);
   }
 
   deleteUser(id: number): Observable<any> {

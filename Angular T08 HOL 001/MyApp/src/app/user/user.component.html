@@ -28,19 +28,32 @@
     </tr>
 </table>
 
-
-    
-<hr>
-<div class="container-fluid">
-    <h4>Create and Update</h4>
-
-    <button class="btn btn-primary ml-5" (click)="createANewUser()">CREATE</button>
-    <button class="btn btn-primary ml-5" (click)="updateUser()">UPDATE</button>
-</div>
-<div class="container-fluid">
-    <h4>Delete</h4>
-    <button class="btn btn-primary ml-5" (click)="deleteUser()">DELETE</button>
-</div>
-
 <hr>
 <div class="container">{{ message }}</div>
+
+<hr>
+<div class="container-fluid">
+    <form #userForm="ngForm" class="form">
+        <small class="text-primary d-block">*Provide the Name and Job for Create</small>
+        <small class="text-primary d-block">*Provide the ID, Name and Job for Update</small>
+        <small class="text-primary d-block">*Provide the ID for Date</small>
+        <div class="form-group">
+            <label for="userName">Enter the User ID</label>
+            <input type="text" name="userID" ngModel class="form-control">
+        </div>
+        <div class="form-group">
+            <label for="userName">Enter the User Name</label>
+            <input type="text" name="userName" ngModel class="form-control">
+        </div>
+        <div class="form-group">
+            <label for="userID">Enter the User JOB</label>
+            <input type="text" name="userJob" ngModel class="form-control">
+        </div>
+
+        <button class="btn btn-primary " (click)="createANewUser(userForm)">CREATE</button>
+        <button class="btn btn-primary ml-5" (click)="updateUser(userForm)">UPDATE</button>
+        <button class="btn btn-primary ml-5" (click)="deleteUser(userForm)">DELETE</button>
+    </form>
+</div>
+
+<hr>

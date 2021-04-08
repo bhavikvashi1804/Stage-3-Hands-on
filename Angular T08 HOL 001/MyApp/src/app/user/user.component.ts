@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
 import { User } from '../model/user.model';
 import { UserService } from '../user.service';
 
@@ -29,11 +30,11 @@ export class UserComponent implements OnInit {
     );
   }
 
-  createANewUser() {
+  createANewUser(userForm: NgForm) {
     this._userService
       .createUser({
-        name: 'morpheus',
-        job: 'leader',
+        name: userForm.value.userName,
+        job: userForm.value.userJob,
       })
       .subscribe(
         (data) => {
@@ -51,11 +52,11 @@ export class UserComponent implements OnInit {
       );
   }
 
-  updateUser() {
+  updateUser(userForm: NgForm) {
     this._userService
-      .updateUser({
-        name: 'morpheus',
-        job: 'leader',
+      .updateUser(userForm.value.userID, {
+        name: userForm.value.userName,
+        job: userForm.value.userJob,
       })
       .subscribe(
         (data) => {
@@ -73,13 +74,13 @@ export class UserComponent implements OnInit {
       );
   }
 
-  deleteUser() {
-    this._userService.deleteUser(2).subscribe(
+  deleteUser(userForm: NgForm) {
+    this._userService.deleteUser(userForm.value.userID).subscribe(
       (data) => {
         console.log(data);
-        if(data == null){
+        if (data == null) {
           //as per the API documentation if delete done then it returns null object
-          this.message = "Delete done";
+          this.message = 'Delete done';
         }
       },
       (error) => {
