@@ -29,6 +29,6 @@ export class UserService {
   }
 
   deleteUser(id: number): Observable<any> {
-    return this.http.delete(this._url + id);
+    return this.http.delete(this._url + '/' + id);
   }
 }
