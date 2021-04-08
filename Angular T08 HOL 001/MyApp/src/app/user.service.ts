@@ -16,4 +16,8 @@ export class UserService {
   getAllUsers(): any {
     return this.http.get<any>(this._url);
   }
+
+  createUser(data: { name: string; job: string }): Observable<any> {
+    return this.http.post('https://reqres.in/api/users', data);
+  }
 }
