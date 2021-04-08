@@ -9,6 +9,8 @@ export class ParentComponent implements OnInit {
 
   constructor() { }
 
+  //way 1: Sharing Data via Input
+
   ngOnInit(): void {
   }
 
